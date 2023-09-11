@@ -2,8 +2,6 @@
 //
 //     final restaurantsModel = restaurantsModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
-import 'dart:convert';
 
 // RestaurantsModel restaurantsModelFromJson(String str) => RestaurantsModel.fromJson(json.decode(str));
 //

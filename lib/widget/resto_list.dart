@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:restaurantdicoding/ui/restodetail_page.dart';
+import 'package:restaurantdicoding/data/model/resto_model.dart';
 
-import '../model/restaurants_model.dart';
+import '../ui/restodetail_page.dart';
 
 class RestoListWidget extends StatelessWidget {
-  final RestaurantsModel restaurantsModel;
+  final RestoListModel restaurantsModel;
 
-  RestoListWidget({Key? key, required this.restaurantsModel}) : super(key: key);
+  const RestoListWidget({Key? key, required this.restaurantsModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,9 @@ class RestoListWidget extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => RestoDetailPage(restaurantsModel: restaurantsModel, restoId: index.toString(),)));
+                      builder: (context) =>
+                          // Container()));
+                          RestoDetailPage(restoId: resto.id.toString(),)));
             },
             child: Container(
               margin: const EdgeInsets.only(bottom: 16),
@@ -34,7 +36,7 @@ class RestoListWidget extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         image: DecorationImage(
-                            image: NetworkImage(resto.pictureId),
+                            image: NetworkImage("https://restaurant-api.dicoding.dev/images/medium/${resto.pictureId}"),
                             fit: BoxFit.cover)),
                   ),
                   const SizedBox(
